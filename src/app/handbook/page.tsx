@@ -26,12 +26,12 @@ function RuleCard({ rule, index }: { rule: RuleItem; index: number }) {
     <div className="py-6 border-b border-slate-200/50 space-y-3.5 transition-all duration-300 hover:pl-2 origin-left">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3.5">
-          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 font-extrabold text-xs">
+          <div className="w-7 h-7 rounded-none bg-slate-100 flex items-center justify-center text-slate-700 font-extrabold text-xs">
             {index}
           </div>
           <h4 className="text-xs sm:text-sm font-bold text-slate-805 uppercase tracking-wider">{rule.title}</h4>
         </div>
-        <span className="px-2.5 py-0.5 rounded-full text-[9px] font-bold bg-slate-50 text-slate-400 border border-slate-200/30 uppercase tracking-widest font-mono">
+        <span className="px-2.5 py-0.5 rounded-none text-[9px] font-bold bg-slate-50 text-slate-400 border border-slate-200/30 uppercase tracking-widest font-mono">
           Code {rule.id.split('-')[1]?.toUpperCase() || rule.id.toUpperCase()}
         </span>
       </div>
@@ -264,7 +264,7 @@ export default function HandbookPage() {
                   placeholder="Search handbook..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3.5 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-hidden focus:border-copa-blue placeholder-slate-400 font-semibold text-slate-800 shadow-2xs"
+                  className="w-full pl-9 pr-3.5 py-2 text-xs rounded-none bg-white border border-slate-200 focus:outline-hidden focus:border-copa-blue placeholder-slate-400 font-semibold text-slate-800 shadow-2xs"
                 />
               </div>
             </div>
@@ -323,7 +323,7 @@ export default function HandbookPage() {
                         >
                           <div className="space-y-3">
                             <div className="flex items-center space-x-3">
-                              <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                              <div className={`w-9 h-9 rounded-none flex items-center justify-center shrink-0 ${
                                 isApproved ? 'bg-emerald-500/10 text-emerald-600' : 'bg-rose-500/10 text-rose-600'
                               }`}>
                                 <Footprints className="w-4.5 h-4.5" />
@@ -335,12 +335,12 @@ export default function HandbookPage() {
                             </div>
 
                             <div className="flex items-center space-x-2">
-                              <span className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold border uppercase tracking-wider ${
+                              <span className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-none text-[9px] font-extrabold border uppercase tracking-wider ${
                                 isApproved 
                                   ? 'bg-emerald-50 text-emerald-700 border-emerald-200/60' 
                                   : 'bg-rose-50 text-rose-700 border-rose-200/60'
                               }`}>
-                                <span className={`w-1.5 h-1.5 rounded-full ${isApproved ? 'bg-emerald-500' : 'bg-rose-500'}`} />
+                                <span className={`w-1.5 h-1.5 rounded-none ${isApproved ? 'bg-emerald-500' : 'bg-rose-500'}`} />
                                 <span>{boot.status}</span>
                               </span>
                             </div>
@@ -350,7 +350,7 @@ export default function HandbookPage() {
                             </p>
                           </div>
 
-                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/40 text-[10px] text-slate-655 font-semibold leading-relaxed">
+                          <div className="p-3.5 rounded-none bg-slate-50 border border-slate-200/40 text-[10px] text-slate-655 font-semibold leading-relaxed">
                             <span className="font-bold text-slate-800 block text-[9px] uppercase tracking-wider mb-0.5">Referee Directive</span>
                             {boot.advice}
                           </div>
