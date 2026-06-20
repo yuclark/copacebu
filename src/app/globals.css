@@ -9,6 +9,10 @@
   --accent-glow: rgba(0, 124, 255, 0.05);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

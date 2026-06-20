@@ -34,6 +34,16 @@ export default function Navbar() {
 
   const isActive = (path: string) => pathname === path;
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      const el = document.getElementById('contact');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <nav className={`sticky top-0 z-50 w-full border-b backdrop-blur-md px-4 sm:px-6 lg:px-8 transition-all duration-300 ${isScrolled
         ? 'bg-white/40 border-slate-200/50 py-2 shadow-sm'
@@ -110,6 +120,7 @@ export default function Navbar() {
             </a>
             <Link
               href="/#contact"
+              onClick={handleContactClick}
               className="p-2 rounded-lg text-slate-500 hover:text-copa-blue hover:bg-slate-100/50 transition-all duration-300 flex items-center justify-center"
               aria-label="Contact Support"
             >
@@ -181,8 +192,17 @@ export default function Navbar() {
             </a>
             <Link
               href="/#contact"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center space-x-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-650 hover:text-copa-blue hover:bg-slate-100/50 transition-all flex items-center justify-center"
+              onClick={(e) => {
+                setIsOpen(false);
+                if (pathname === '/') {
+                  e.preventDefault();
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+              }}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-655 hover:text-copa-blue hover:bg-slate-100/50 transition-all flex items-center justify-center"
             >
               <Mail className="w-4 h-4 shrink-0" />
               <span className="text-sm font-semibold">Contact</span>
