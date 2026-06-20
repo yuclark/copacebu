@@ -1,6 +1,6 @@
 import { Award, ShieldAlert, Star, Trophy, Shield, Medal } from 'lucide-react';
 
-export default function RewardsPrizesPage() {
+export default function AwardsPage() {
   const prizes = [
     {
       title: 'Tournament Champions',
@@ -61,7 +61,7 @@ export default function RewardsPrizesPage() {
       {/* Title */}
       <div>
         <h1 className="font-display font-black text-3xl sm:text-5xl uppercase text-slate-900">
-          Rewards & <span className="text-gradient-copa-cebu">Prizes</span>
+          Tournament <span className="text-gradient-copa-cebu">Awards</span>
         </h1>
         <p className="text-sm text-slate-500 mt-2">
           Discover the awards, trophies, medals, and recognitions waiting for the champions of COPA Cebu 2026.
@@ -165,14 +165,14 @@ export default function RewardsPrizesPage() {
         </div>
       </section>
 
-      {/* Rewards Catalog Section */}
+      {/* Awards Catalog Section */}
       <section className="space-y-6">
         <div className="flex items-center space-x-3">
           <div className="p-1.5 rounded-lg bg-copa-blue/10 border border-copa-blue/20">
             <Shield className="w-5 h-5 text-copa-blue" />
           </div>
           <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 uppercase tracking-wider">
-            Rewards <span className="text-gradient-copa-cebu">Catalog</span>
+            Awards <span className="text-gradient-copa-cebu">Catalog</span>
           </h2>
         </div>
 

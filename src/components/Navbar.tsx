@@ -19,27 +19,26 @@ export default function Navbar() {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Schedule', href: '/schedule', icon: Calendar },
+    { name: 'Fixtures', href: '/fixtures', icon: Calendar },
     { name: 'Standings', href: '/standings', icon: Trophy },
-    { name: 'Information', href: '/information', icon: Info },
-    { name: 'Rules', href: '/rules', icon: ScrollText },
-    { name: 'Rewards & Prizes', href: '/rewards-prizes', icon: Award },
+    { name: 'Awards', href: '/awards', icon: Award },
+    { name: 'Handbook', href: '/handbook', icon: ScrollText },
+    { name: 'FAQs', href: '/faqs', icon: Info },
   ];
 
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className={`sticky top-0 z-50 w-full border-b backdrop-blur-md px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/40 border-slate-200/50 py-2 shadow-sm' 
+    <nav className={`sticky top-0 z-50 w-full border-b backdrop-blur-md px-4 sm:px-6 lg:px-8 transition-all duration-300 ${isScrolled
+        ? 'bg-white/40 border-slate-200/50 py-2 shadow-sm'
         : 'bg-white/85 border-slate-200 py-3.5'
-    }`}>
+      }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group">
@@ -68,11 +67,10 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center space-x-1.5 group ${
-                  active
+                className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center space-x-1.5 group ${active
                     ? 'text-copa-blue'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
-                }`}
+                  }`}
               >
                 {active && (
                   <span className="absolute inset-0 bg-gradient-to-r from-copa-blue/5 via-year-purple/5 to-cebu-green/5 rounded-lg border border-slate-200/50" />
@@ -82,7 +80,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          
+
           <div className="h-4 w-[1px] bg-slate-200 mx-2" />
 
           <div className="flex items-center space-x-2">
@@ -94,7 +92,7 @@ export default function Navbar() {
               aria-label="Facebook"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z" />
               </svg>
             </a>
             <a
@@ -136,18 +134,17 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg text-base font-semibold transition-all ${
-                  active
+                className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg text-base font-semibold transition-all ${active
                     ? 'bg-gradient-to-r from-copa-blue/5 to-year-purple/5 border border-slate-200 text-copa-blue'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
-                }`}
+                  }`}
               >
                 <Icon className={`w-5 h-5 ${active ? 'text-copa-blue' : 'text-slate-400'}`} />
                 <span>{item.name}</span>
               </Link>
             );
           })}
-          
+
           <div className="border-t border-slate-150 mt-3 pt-3 flex items-center justify-center space-x-6">
             <a
               href="https://www.facebook.com/copa.cebu"
@@ -157,7 +154,7 @@ export default function Navbar() {
               className="flex items-center space-x-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-650 hover:text-copa-blue hover:bg-slate-100/50 transition-all flex items-center justify-center"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z" />
               </svg>
               <span className="text-sm font-semibold">Facebook</span>
             </a>

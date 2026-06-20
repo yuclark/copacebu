@@ -1,13 +1,50 @@
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, MapPin, Trophy, Users, ShieldAlert, Award, ArrowRight } from 'lucide-react';
+import {
+  Calendar,
+  MapPin,
+  Trophy,
+  Users,
+  ShieldAlert,
+  Award,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  X,
+  Mail
+} from 'lucide-react';
+
+const slides = [
+  {
+    src: '/image.png',
+    alt: 'General Tournament Information',
+    notes: 'Contains general categories, field layouts, game duration definitions, and contact credentials.'
+  },
+  {
+    src: '/image copy.png',
+    alt: 'Registration and Eligibility Guidelines',
+    notes: 'Detailing document requirements, roster locks, payment procedures, and coach protocols.'
+  },
+  {
+    src: '/image copy 2.png',
+    alt: 'Roster Rules and Early Bird Pricing',
+    notes: 'Covering player maximum sizes, substitution patterns, pricing brackets, and schedules.'
+  },
+];
 
 export default function Home() {
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   return (
     <div className="w-full space-y-16 py-6 md:py-12 relative">
       {/* Full-bleed viewport-width background banner of cover.png starting exactly under navbar and ending before the bottom cards */}
       <div className="absolute top-0 -mt-8 left-1/2 right-1/2 -translate-x-1/2 w-screen h-[550px] sm:h-[650px] md:h-[750px] z-[-1] overflow-hidden pointer-events-none">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center filter saturate-110 animate-zoom-in-bg"
           style={{ backgroundImage: "url('/cover.png')" }}
         />
@@ -18,23 +55,23 @@ export default function Home() {
       <section className="relative w-full flex flex-col items-center justify-center text-center space-y-10 py-12 md:py-24 px-4 overflow-hidden">
         {/* Glow behind title */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-gradient-to-tr from-copa-blue/15 via-year-purple/10 to-cebu-green/10 rounded-full blur-[80px] z-[-1]" />
-        
+
         {/* Brand Text Header & Tagline */}
         <div className="flex flex-col items-center text-center space-y-4 w-full max-w-5xl mx-auto">
-          <h1 
+          <h1
             style={{ animationDelay: '150ms' }}
             className="font-display font-black text-6xl sm:text-9xl md:text-[9.5rem] lg:text-[11rem] tracking-tighter uppercase leading-none select-none text-center w-full block opacity-0 animate-fade-in-up"
           >
             <span className="text-gradient-copa">COPA</span> <span className="text-gradient-cebu">CEBU</span>
           </h1>
-          <div 
+          <div
             style={{ animationDelay: '300ms' }}
             className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-[0.35em] text-year-purple uppercase leading-none mt-2 select-none w-full text-center block opacity-0 animate-fade-in-up"
           >
             2026
           </div>
-          
-          <h2 
+
+          <h2
             style={{ animationDelay: '450ms' }}
             className="font-display italic text-lg sm:text-2xl text-slate-800 font-bold tracking-wide max-w-2xl px-4 mt-6 text-center opacity-0 animate-fade-in-up"
           >
@@ -43,7 +80,7 @@ export default function Home() {
         </div>
 
         {/* CTAs */}
-        <div 
+        <div
           style={{ animationDelay: '600ms' }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full px-4 max-w-md mx-auto opacity-0 animate-fade-in-up"
         >
@@ -55,10 +92,10 @@ export default function Home() {
             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
-            href="/information"
+            href="/faqs"
             className="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel border border-slate-200 text-slate-650 hover:text-slate-950 hover:border-slate-350 hover:bg-slate-50 transition-all duration-300 flex items-center justify-center space-x-2"
           >
-            <span>General Info</span>
+            <span>FAQs</span>
           </Link>
         </div>
       </section>
@@ -156,15 +193,15 @@ export default function Home() {
             </ul>
             <div className="pt-2">
               <Link
-                href="/rules"
+                href="/handbook"
                 className="inline-flex items-center space-x-2 text-sm font-bold text-copa-blue hover:text-copa-blue/80 transition-colors group"
               >
-                <span>Read Official Tournament Rules</span>
+                <span>Read Official Tournament Handbook</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
-          
+
           <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-100 bg-slate-50/50 flex flex-col space-y-6">
             <div className="flex items-center space-x-3">
               <ShieldAlert className="w-6 h-6 text-slate-700" />
@@ -180,6 +217,196 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Latest News & Announcements Section */}
+      <section className="space-y-6 pt-4">
+        <div>
+          <span className="text-[10px] font-bold text-copa-blue uppercase tracking-widest bg-copa-blue/5 border border-copa-blue/10 px-3 py-1 rounded-full font-sans">
+            Updates & Announcements
+          </span>
+          <h2 className="font-display font-black text-3xl sm:text-5xl uppercase text-slate-900 leading-none mt-3">
+            Latest <span className="text-gradient-copa-cebu">News</span>
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-2 max-w-2xl leading-relaxed font-semibold">
+            Stay informed with the latest updates, event rules, and official announcements for COPA Cebu 2026.
+          </p>
+        </div>
+
+        {/* Large News display card */}
+        <div className="hover-card rounded-3xl overflow-hidden bg-white border border-slate-200/50 grid grid-cols-1 md:grid-cols-12 items-stretch shadow-md">
+          {/* Main Slide display */}
+          <div className="md:col-span-8 bg-slate-50 relative aspect-[4/3] w-full flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-100 group">
+            <div className="relative w-full h-full p-4 flex items-center justify-center">
+              <Image
+                src={slides[slideIndex].src}
+                alt={slides[slideIndex].alt}
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                priority
+              />
+            </div>
+
+            {/* Navigation Overlay Arrows */}
+            <button
+              onClick={() => setSlideIndex((prev) => (prev > 0 ? prev - 1 : slides.length - 1))}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 border border-slate-200/50 backdrop-blur-xs flex items-center justify-center shadow-xs text-slate-700 hover:bg-white hover:text-copa-blue transition-all cursor-pointer z-10"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => setSlideIndex((prev) => (prev < slides.length - 1 ? prev + 1 : 0))}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 border border-slate-200/50 backdrop-blur-xs flex items-center justify-center shadow-xs text-slate-700 hover:bg-white hover:text-copa-blue transition-all cursor-pointer z-10"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Fullscreen Trigger */}
+            <button
+              onClick={() => setLightboxOpen(true)}
+              className="absolute right-4 bottom-4 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 text-white text-[9px] font-bold uppercase tracking-wider flex items-center space-x-1.5 transition-all shadow-md backdrop-blur-xs cursor-pointer z-10"
+            >
+              <Maximize2 className="w-3.5 h-3.5" />
+              <span>Fullscreen</span>
+            </button>
+          </div>
+
+          {/* Slide metadata side panel */}
+          <div className="md:col-span-4 p-6 flex flex-col justify-between bg-white space-y-6">
+            <div className="space-y-4">
+              <span className="text-[10px] font-bold text-year-purple uppercase tracking-widest block font-sans">News Selection Panel</span>
+              <div className="space-y-1.5">
+                <span className="text-[9px] font-bold text-slate-400 block font-mono">UPDATE-0{slideIndex + 1} OF 03</span>
+                <h4 className="text-sm font-extrabold text-slate-800 uppercase leading-snug">{slides[slideIndex].alt}</h4>
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                {slides[slideIndex].notes}
+              </p>
+            </div>
+
+            {/* Thumbnail Navigation */}
+            <div className="space-y-3">
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block font-sans">News Updates Gallery</span>
+              <div className="grid grid-cols-3 gap-2.5">
+                {slides.map((slide, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSlideIndex(idx)}
+                    className={`relative aspect-[4/3] rounded-lg overflow-hidden border transition-all cursor-pointer ${slideIndex === idx
+                        ? 'border-copa-blue shadow-xs scale-103 bg-slate-50 ring-2 ring-copa-blue/20'
+                        : 'border-slate-100 bg-slate-100 hover:border-slate-200'
+                      }`}
+                  >
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      className="object-contain p-1"
+                      sizes="10vw"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Newsletter-Style Contact Card */}
+      <section className="w-full max-w-7xl mx-auto px-2 pt-4 relative z-10">
+        <div className="glass-panel py-8 px-6 sm:px-8 md:p-12 rounded-3xl border border-slate-200/60 bg-white/70 backdrop-blur-md shadow-xs flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-8 relative overflow-hidden">
+          {/* Subtle grid background */}
+          <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#007cff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+          
+          {/* Left Column: Heading & Description */}
+          <div className="relative z-10 max-w-xl space-y-4">
+            <span className="text-[10px] font-bold text-copa-blue uppercase tracking-widest bg-copa-blue/5 border border-copa-blue/10 px-3 py-1 rounded-full inline-block">
+              Organizing Committee
+            </span>
+            <h3 className="font-display font-black text-2xl sm:text-3xl uppercase leading-tight text-slate-900">
+              Need Direct <span className="text-gradient-copa-cebu">Support?</span>
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-semibold">
+              Have questions regarding team rosters, match schedule adjustments, or age verifications? Send our administration crew a direct message or email us at <a href="mailto:info@copacebu.com" className="text-copa-blue hover:underline">info@copacebu.com</a>.
+            </p>
+          </div>
+
+          {/* Right Column: Newsletter-style Support Form */}
+          <div className="relative z-10 w-full lg:max-w-md shrink-0">
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const msg = formData.get('message') as string;
+                window.location.href = `mailto:info@copacebu.com?subject=Copa Cebu 2026 Inquiry&body=${encodeURIComponent(msg || '')}`;
+              }}
+              className="flex flex-col sm:flex-row items-stretch gap-2.5 bg-white p-2.5 rounded-2xl border border-slate-200 shadow-sm"
+            >
+              <input
+                type="text"
+                name="message"
+                required
+                placeholder="Type your question here..."
+                className="flex-1 px-4 py-3 rounded-xl bg-slate-50/50 text-slate-900 text-xs border border-slate-200 focus:outline-hidden focus:border-copa-blue placeholder-slate-400 font-semibold"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm shrink-0 cursor-pointer"
+              >
+                Send Message
+              </button>
+            </form>
+            <span className="text-[10px] text-slate-400 font-bold block mt-3 text-center sm:text-left">
+              * Click send to draft an email directly to our support mailbox.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox / Zoom Overlay Modal */}
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4 animate-fade-in">
+          {/* Modal Header Controls */}
+          <div className="w-full max-w-6xl flex justify-between items-center text-white mb-4 z-10">
+            <div>
+              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest font-mono">High Resolution News Viewer</span>
+              <h4 className="text-sm font-extrabold uppercase mt-0.5">{slides[slideIndex].alt}</h4>
+            </div>
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Modal Content */}
+          <div className="relative w-full max-w-6xl aspect-[4/3] flex items-center justify-center">
+            <Image
+              src={slides[slideIndex].src}
+              alt={slides[slideIndex].alt}
+              fill
+              className="object-contain"
+              sizes="90vw"
+              priority
+            />
+
+            {/* Lightbox Overlay Navigation */}
+            <button
+              onClick={() => setSlideIndex((prev) => (prev > 0 ? prev - 1 : slides.length - 1))}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white hover:bg-black/90 transition-all cursor-pointer z-10"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => setSlideIndex((prev) => (prev < slides.length - 1 ? prev + 1 : 0))}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white hover:bg-black/90 transition-all cursor-pointer z-10"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

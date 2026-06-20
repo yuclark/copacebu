@@ -12,7 +12,7 @@ import {
   Footprints
 } from 'lucide-react';
 
-export default function RulesPage() {
+export default function HandbookPage() {
   // 1. Filter and Search State
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<'all' | 'format' | 'gameplay' | 'safety'>('all');
@@ -161,7 +161,7 @@ export default function RulesPage() {
     <div className="w-full space-y-16 py-4 animate-fade-in-up relative">
       {/* Background outline decorative text */}
       <div className="absolute top-[-30px] right-[-10px] text-[10vw] font-black text-slate-100/40 select-none pointer-events-none z-[-2] tracking-tighter">
-        RULEBOOK
+        HANDBOOK
       </div>
 
       {/* Header */}
@@ -170,10 +170,10 @@ export default function RulesPage() {
           Official Manual & Directives
         </span>
         <h1 className="font-display font-black text-3xl sm:text-5xl uppercase text-slate-900 leading-none mt-2">
-          Tournament <span className="text-gradient-copa-cebu">Regulations</span>
+          Tournament <span className="text-gradient-copa-cebu">Handbook</span>
         </h1>
         <p className="text-sm sm:text-base text-slate-500 max-w-2xl leading-relaxed">
-          The official interactive playbook. Select, search, and simulate gameplay rules for COPA Cebu 2026.
+          The official interactive playbook. Select, search, and simulate gameplay handbook rules for COPA Cebu 2026.
         </p>
       </div>
 
@@ -194,7 +194,7 @@ export default function RulesPage() {
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search rulebook..."
+              placeholder="Search handbook..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2 text-xs rounded-xl bg-white border border-slate-200 focus:outline-hidden focus:border-copa-blue font-medium"
