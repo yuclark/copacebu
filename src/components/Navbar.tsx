@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Trophy, Menu, X, Info, ScrollText, Award, Lock } from 'lucide-react';
+import { Trophy, Menu, X, Info, ScrollText, Award, Calendar } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +25,7 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
+    { name: 'Schedule', href: '/schedule', icon: Calendar },
     { name: 'Standings', href: '/standings', icon: Trophy },
     { name: 'Information', href: '/information', icon: Info },
     { name: 'Rules', href: '/rules', icon: ScrollText },
@@ -84,17 +85,32 @@ export default function Navbar() {
           
           <div className="h-4 w-[1px] bg-slate-200 mx-2" />
 
-          <Link
-            href="/admin"
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center space-x-1.5 border ${
-              isActive('/admin')
-                ? 'border-year-purple text-year-purple bg-year-purple/5'
-                : 'border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-100/50'
-            }`}
-          >
-            <Lock className="w-3.5 h-3.5" />
-            <span>Admin</span>
-          </Link>
+          <div className="flex items-center space-x-2">
+            <a
+              href="https://www.facebook.com/copa.cebu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-slate-500 hover:text-copa-blue hover:bg-slate-100/50 transition-all duration-300 flex items-center justify-center"
+              aria-label="Facebook"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/copacebu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-slate-500 hover:text-year-purple hover:bg-slate-100/50 transition-all duration-300 flex items-center justify-center"
+              aria-label="Instagram"
+            >
+              <svg className="w-4 h-4" stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         {/* Mobile menu button */}
@@ -132,18 +148,34 @@ export default function Navbar() {
             );
           })}
           
-          <Link
-            href="/admin"
-            onClick={() => setIsOpen(false)}
-            className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg text-base font-semibold border transition-all ${
-              isActive('/admin')
-                ? 'border-year-purple text-year-purple bg-year-purple/5'
-                : 'border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
-            }`}
-          >
-            <Lock className="w-4 h-4" />
-            <span>Admin Control</span>
-          </Link>
+          <div className="border-t border-slate-150 mt-3 pt-3 flex items-center justify-center space-x-6">
+            <a
+              href="https://www.facebook.com/copa.cebu"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-650 hover:text-copa-blue hover:bg-slate-100/50 transition-all flex items-center justify-center"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+              </svg>
+              <span className="text-sm font-semibold">Facebook</span>
+            </a>
+            <a
+              href="https://www.instagram.com/copacebu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-650 hover:text-year-purple hover:bg-slate-100/50 transition-all flex items-center justify-center"
+            >
+              <svg className="w-4 h-4" stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <span className="text-sm font-semibold">Instagram</span>
+            </a>
+          </div>
         </div>
       )}
     </nav>

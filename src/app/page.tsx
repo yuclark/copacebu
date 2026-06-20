@@ -66,42 +66,63 @@ export default function Home() {
       {/* Quick Overview Cards */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 px-2">
         {/* Date Card */}
-        <div className="hover-card p-8 rounded-2xl flex flex-col space-y-4 relative overflow-hidden group">
-          <div className="w-12 h-12 rounded-xl bg-copa-blue/10 flex items-center justify-center text-copa-blue">
-            <Calendar className="w-6 h-6" />
+        <div className="hover-card p-8 rounded-2xl flex flex-col space-y-6 relative overflow-hidden group border border-slate-200/50 bg-white/70 backdrop-blur-md hover:bg-white/90 hover:border-copa-blue/20 transition-all duration-500">
+          <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-gradient-to-bl from-copa-blue/5 to-transparent blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          <div className="flex items-center justify-between">
+            <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/50 flex items-center justify-center shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-copa-blue/30 group-hover:bg-copa-blue/5">
+              <Calendar className="w-5 h-5 text-slate-700 transition-colors duration-300 group-hover:text-copa-blue" />
+            </div>
+            <span className="text-[10px] font-mono tracking-widest text-slate-400 font-bold uppercase select-none">
+              01 / Dates
+            </span>
           </div>
-          <div>
-            <h3 className="font-display font-bold text-xl text-slate-900">Three Days of Football</h3>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+          <div className="space-y-2">
+            <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-copa-blue transition-colors duration-300">Three Days of Football</h3>
+            <p className="text-sm text-slate-500 leading-relaxed font-medium">
               June 19 – 21, 2026. Non-stop matches featuring local talents, clubs, and academies.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-copa-blue to-year-purple transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         </div>
 
         {/* Location Card */}
-        <div className="hover-card p-8 rounded-2xl flex flex-col space-y-4 relative overflow-hidden group">
-          <div className="w-12 h-12 rounded-xl bg-cebu-green/10 flex items-center justify-center text-cebu-green">
-            <MapPin className="w-6 h-6" />
+        <div className="hover-card p-8 rounded-2xl flex flex-col space-y-6 relative overflow-hidden group border border-slate-200/50 bg-white/70 backdrop-blur-md hover:bg-white/90 hover:border-cebu-green/20 transition-all duration-500">
+          <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-gradient-to-bl from-cebu-green/5 to-transparent blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          <div className="flex items-center justify-between">
+            <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/50 flex items-center justify-center shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-cebu-green/30 group-hover:bg-cebu-green/5">
+              <MapPin className="w-5 h-5 text-slate-700 transition-colors duration-300 group-hover:text-cebu-green" />
+            </div>
+            <span className="text-[10px] font-mono tracking-widest text-slate-400 font-bold uppercase select-none">
+              02 / Venue
+            </span>
           </div>
-          <div>
-            <h3 className="font-display font-bold text-xl text-slate-900">Elite Sports Arena</h3>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+          <div className="space-y-2">
+            <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-cebu-green transition-colors duration-300">Elite Sports Arena</h3>
+            <p className="text-sm text-slate-500 leading-relaxed font-medium">
               Hosted at the premium Dynamic Herb Sports Complex, Talisay City, Cebu. Top-tier artificial turf field.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cebu-green to-copa-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         </div>
 
         {/* Divisions Card */}
-        <div className="hover-card p-8 rounded-2xl flex flex-col space-y-4 relative overflow-hidden group">
-          <div className="w-12 h-12 rounded-xl bg-year-purple/10 flex items-center justify-center text-year-purple">
-            <Trophy className="w-6 h-6" />
+        <div className="hover-card p-8 rounded-2xl flex flex-col space-y-6 relative overflow-hidden group border border-slate-200/50 bg-white/70 backdrop-blur-md hover:bg-white/90 hover:border-year-purple/20 transition-all duration-500">
+          <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-gradient-to-bl from-year-purple/5 to-transparent blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          <div className="flex items-center justify-between">
+            <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/50 flex items-center justify-center shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-year-purple/30 group-hover:bg-year-purple/5">
+              <Trophy className="w-5 h-5 text-slate-700 transition-colors duration-300 group-hover:text-year-purple" />
+            </div>
+            <span className="text-[10px] font-mono tracking-widest text-slate-400 font-bold uppercase select-none">
+              03 / Divisions
+            </span>
           </div>
-          <div>
-            <h3 className="font-display font-bold text-xl text-slate-900">Diverse Age Brackets</h3>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
-              From Mixed youth divisions (P-7 to P-13) and Boys (P-15 to P-17) to Men&apos;s and Women&apos;s Open categories.
+          <div className="space-y-2">
+            <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-year-purple transition-colors duration-300">Diverse Age Brackets</h3>
+            <p className="text-sm text-slate-500 leading-relaxed font-medium">
+              From Mixed youth divisions (P-7 to P-13) and Boys (P-15 to P-17) to Men&apos;s Open categories.
             </p>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-year-purple to-cebu-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         </div>
       </section>
 

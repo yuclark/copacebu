@@ -8,6 +8,11 @@ import { mockDivisions, mockTeams, mockMatches } from '../lib/mockData';
 async function seed() {
   console.log('🌱 Seeding database...');
 
+  if (!process.env.DATABASE_URL) {
+    console.warn('⚠️ DATABASE_URL is not set. Skipping database seeding.');
+    return;
+  }
+
   try {
     // 1. Clean existing records (dependent order due to foreign keys)
     console.log('Cleaning old data...');

@@ -118,7 +118,7 @@ export default function InformationPage() {
     },
     {
       item: 'Open Division Exemption',
-      scope: "Men's / Women's Open",
+      scope: "Men's Open",
       purpose: 'Category compliance',
       requirement: 'No birth verification documents needed',
       steps: ['Govt Photo ID Present', 'Match Registration Sheet', 'Roster Validation Clear'],

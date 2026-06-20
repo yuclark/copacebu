@@ -17,11 +17,11 @@ export default async function StandingsPage() {
           Tournament <span className="text-gradient-copa-cebu">Standings</span>
         </h1>
         <p className="text-sm text-slate-500 mt-2">
-          Track group stage rankings, match histories, and upcoming knockout schedules across all age divisions.
+          Track group stage rankings, points, and goal ratios across all tournament brackets.
         </p>
       </div>
 
-      <StandingsView divisions={divisions} teams={teams} matches={matches} />
+      <StandingsView divisions={divisions} teams={teams} />
     </div>
   );
 }
