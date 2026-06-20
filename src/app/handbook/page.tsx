@@ -245,7 +245,7 @@ export default function HandbookPage() {
         <div className="lg:col-span-9 space-y-12">
           
           {/* Category 1: Match Formats */}
-          <div id="section-format" className="space-y-6 scroll-mt-24">
+          <div id="section-format" className="glass-panel p-6 sm:p-8 rounded-none space-y-6 scroll-mt-24">
             <div className="border-b border-slate-200 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
                 <h2 className="font-display font-black text-2xl sm:text-3xl text-slate-900 uppercase leading-none transition-all duration-300 hover:scale-[1.01] origin-left">
@@ -276,7 +276,7 @@ export default function HandbookPage() {
           </div>
 
           {/* Category 2: Gameplay Rules */}
-          <div id="section-gameplay" className="space-y-6 scroll-mt-24">
+          <div id="section-gameplay" className="glass-panel p-6 sm:p-8 rounded-none space-y-6 scroll-mt-24">
             <div className="border-b border-slate-200 pb-3">
               <h2 className="font-display font-black text-2xl sm:text-3xl text-slate-900 uppercase leading-none transition-all duration-300 hover:scale-[1.01] origin-left">
                 2. Gameplay Regulations
@@ -293,7 +293,7 @@ export default function HandbookPage() {
           </div>
 
           {/* Category 3: Safety & Footwear */}
-          <div id="section-safety" className="space-y-6 scroll-mt-24">
+          <div id="section-safety" className="glass-panel p-6 sm:p-8 rounded-none space-y-6 scroll-mt-24">
             <div className="border-b border-slate-200 pb-3">
               <h2 className="font-display font-black text-2xl sm:text-3xl text-slate-900 uppercase leading-none transition-all duration-300 hover:scale-[1.01] origin-left">
                 3. Safety & Footwear Regulations
@@ -350,7 +350,7 @@ export default function HandbookPage() {
                             </p>
                           </div>
 
-                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/40 text-[10px] text-slate-650 font-semibold leading-relaxed">
+                          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/40 text-[10px] text-slate-655 font-semibold leading-relaxed">
                             <span className="font-bold text-slate-800 block text-[9px] uppercase tracking-wider mb-0.5">Referee Directive</span>
                             {boot.advice}
                           </div>
