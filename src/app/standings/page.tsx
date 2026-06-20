@@ -13,10 +13,10 @@ export default async function StandingsPage() {
   return (
     <div className="w-full space-y-8 animate-fade-in-up py-4">
       <div>
-        <h1 className="font-display font-black text-3xl sm:text-5xl uppercase text-white">
+        <h1 className="font-display font-black text-3xl sm:text-5xl uppercase text-slate-900">
           Tournament <span className="text-gradient-copa-cebu">Standings</span>
         </h1>
-        <p className="text-sm text-gray-400 mt-2">
+        <p className="text-sm text-slate-500 mt-2">
           Track group stage rankings, match histories, and upcoming knockout schedules across all age divisions.
         </p>
       </div>
