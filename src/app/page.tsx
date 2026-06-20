@@ -313,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* Professional Newsletter-Style Contact Card */}
-      <section className="w-full max-w-7xl mx-auto px-2 pt-4 relative z-10">
+      <section id="contact" className="w-full max-w-7xl mx-auto px-2 pt-4 relative z-10 scroll-mt-24">
         <div className="glass-panel py-8 px-6 sm:px-8 md:p-12 rounded-3xl border border-slate-200/60 bg-white/70 backdrop-blur-md shadow-xs flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-8 relative overflow-hidden">
           {/* Subtle grid background */}
           <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#007cff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
