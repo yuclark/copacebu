@@ -19,7 +19,7 @@ export default function StandingsView({ divisions, teams }: Props) {
   // 3. Goals For (Goals Scored)
   // 4. Goals Against (Goals Conceded - fewer is better)
   const divisionTeams = teams
-    .filter(t => t.divisionId === selectedDivisionId)
+    .filter(t => t.divisionId === selectedDivisionId && !/^(winner|top \d|wc\d)/i.test(t.name))
     .sort((a, b) => {
       if (b.points !== a.points) return b.points - a.points;
       const gdA = a.goalsFor - a.goalsAgainst;
